@@ -1,0 +1,108 @@
+/* register.css */
+
+/* Global Styles (common with login.css) */
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #EEEEEE;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.container {
+    background-color: #222831;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    border-radius: 8px;
+    width: 400px;
+}
+
+.form-container {
+    max-width: 400px;
+    margin: auto;
+}
+
+/* Form Styles (common with login.css) */
+h1 {
+    text-align: center;
+    color: #fff;
+}
+
+form {
+    margin-top: 20px;
+}
+
+/* Input Styles (common with login.css) */
+label {
+    display: block;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Checkbox Styles (common with login.css) */
+label.inline-flex {
+    display: inline-flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+/* Button Styles (common with login.css) */
+button {
+    background-color: #00ADB5;
+    color: #fff;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: block;
+    width: 100%;
+    margin-top: 15px;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+button:hover {
+    background-color: #00d4df;
+}
+
+/* Link Styles (common with login.css) */
+a {
+    color: #00ADB5;
+    text-decoration: none;
+    margin-bottom: 10px; /* Add margin to create space */
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Error Message Styles (common with login.css) */
+.alert-danger {
+    color: #00ADB5;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 15px;
+}
+
+/* Additional Styles for Register Page */
+/* Add your specific styles for the register page here */

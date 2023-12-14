@@ -1,0 +1,75 @@
+ /* Header navbar */
+header .navbar {
+    background-color: #222831 !important;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .075) !important;
+    margin-bottom: 20px !important;
+}
+header .navbar-brand,
+.navbar-nav .nav-link,
+.navbar-text {
+    color: #EEEEEE !important;
+    font-weight: 500 !important; 
+}
+* {
+    font-family: 'Nunito Sans', sans-serif;
+}
+/* End Header navbar */
+
+/* Body */
+body {
+    background-color: #EEEEEE !important;
+}
+
+.bodycarousel{
+    padding-top: 20px !important;
+}
+
+.card-body, .card-group > .card {
+    border-radius: 7px !important;
+    
+}
+
+.bodynewmanga{
+    padding-top: 20px !important;
+    padding-bottom: 20px !important;
+}
+
+/* Style the dropdown container */
+.nav-item.dropdown {
+    position: relative;
+}
+
+/* Style the dropdown toggle link */
+.nav-link.dropdown-toggle {
+    color: #333; /* Change the color to your preference */
+}
+
+/* Style the dropdown menu */
+.dropdown-menu {
+    background-color: #fff; /* Change the background color to your preference */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add a box shadow for a subtle effect */
+    border: 1px solid #ccc; /* Add a border for separation */
+}
+
+.dropdown-item i {
+    text-align: left;
+    margin-right: 10px; /* Add margin to create space between icon and text */
+}
+
+/* Style the dropdown items */
+.dropdown-item {
+    display: flex; /* Use flexbox to align icon and text */
+    align-items: center; /* Center items vertically */
+    color: #333; /* Change the color to your preference */
+    font-size: 16px;
+    width: 250px;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Style the hover effect for dropdown items */
+.dropdown-item:hover {
+    background-color: #EEEEEE; /* Change the background color on hover */
+}
+
+  
