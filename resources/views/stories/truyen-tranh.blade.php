@@ -1,29 +1,29 @@
-<x-navbar/>
+<x-navbar />
 <p></p>
 <div class="container">
     <div class="row">
         <div class="col-8">
             <div class="card mb-3">
+                <div class="card-header">
                 <div class="card-body stories">
                     <div class="row">
+                        
                         <div class="col-12 col-md-4">
                             <div class="stories-cover">
-                                <img src="
-                            https://i.postimg.cc/0Q2h5RT6/evangelion.jpg
-                            {{-- {{ asset($story->StoriesCover) }} --}}
-                            " class="card-img-top" alt="...">
+                                <img src="{{ $cover }}"class="card-img-top" alt="...">
                             </div>
-                            
+
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="stories-title">
                                 <span>
-                                    <h4>{{ $title }}</h4>
+                                    <h4 class="fw-bold">{{ $title }}</h4>
                                 </span>
                             </div>
-                            <div class="stories-infomation">
+
+                            <div class="stories-infomation mb-5">
                                 <div class="stories-item">
-                                    <span class="stories-name font-weight-bold">
+                                    <span class="stories-name fw-bold">
                                         Tên khác:
                                     </span>
                                     <span class="stories-value">
@@ -31,74 +31,80 @@
                                     </span>
                                 </div>
                                 <div class="stories-item">
-                                    <span class="stories-name font-weight-bold">
+                                    <span class="stories-name fw-bold">
                                         Thể loại:
                                     </span>
                                     <span class="stories-value">
-                                        @foreach ($categories as $genre)
-                                        <span class="badge badge-primary">{{ $genre }}</span>
-                                        @endforeach
+                                        {{ $categoryNames }}
                                     </span>
                                 </div>
                                 <div class="stories-item">
-                                    <span class="stories-name font-weight-bold">
+                                    <span class="stories-name fw-bold">
                                         Tác giả:
                                     </span>
                                     <span class="stories-value">
-                                        {{ $author }}
+                                        {{ $authorNames }}
                                     </span>
                                 </div>
-                            </div>                            
-                           <p></p>
-                           <div class="col-12 bottom-features">
-                            <div class="side-features">
-                                <div class="row justify-content-center">
-                                    <div class="col-md-2 col-2 feature-item">
-                                        <a href="" class="text-decoration-none text-dark">
-                                            <span class="d-block feature-value display-6">
-                                                <i class="bi bi-hand-thumbs-up"></i>
-                                            </span>
-                                            <span class="block feature-name">20</span>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-2 col-2 feature-item">
-                                        <a href="" class="text-decoration-none text-dark">
-                                            <span class="d-block feature-value display-6">
-                                                <i class="bi bi-hand-thumbs-down"></i>
-                                            </span>
-                                            <span class="block feature-name">20</span>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-2 col-2 feature-item">
-                                        <a href="" class="text-decoration-none text-dark">
-                                            <span class="d-block feature-value display-6">
-                                                <i class="bi bi-suit-heart"></i>
-                                            </span>
-                                            <span class="block feature-name">20</span>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-2 col-2 feature-item">
-                                        <a href="" class="text-decoration-none text-dark">
-                                            <span class="d-block feature-value display-6">
-                                                <i class="bi bi-star"></i>
-                                            </span>
-                                            <span class="block feature-name">20</span>
-                                        </a>
-                                    </div>
-                                    <div class="col-md-2 col-2 feature-item">
-                                        <a href="" class="text-decoration-none text-dark">
-                                            <span class="d-block feature-value display-6">
-                                                <i class="bi bi-share"></i>
-                                            </span>
-                                            <span class="block feature-name">20</span>
-                                        </a>
+                                <div class="stories-item">
+                                    <span class="stories-name fw-bold">
+                                        Tiến độ truyện:
+                                    </span>
+                                    <span class="stories-value">
+                                        {{ $status }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-12 bottom-features">
+                                <div class="side-features">
+                                    <div class="row justify-content-center">
+                                        <div class="col-md-2 col-2 feature-item text-center">
+                                            <a href="" class="text-decoration-none text-dark">
+                                                <span class="d-block feature-value display-6">
+                                                    <i class="bi bi-hand-thumbs-up"></i>
+                                                </span>
+                                                <span class="block feature-name">20</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-2 col-2 feature-item text-center">
+                                            <a href="" class="text-decoration-none text-dark">
+                                                <span class="d-block feature-value display-6">
+                                                    <i class="bi bi-hand-thumbs-down"></i>
+                                                </span>
+                                                <span class="block feature-name">20</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-2 col-2 feature-item text-center">
+                                            <a href="" class="text-decoration-none text-dark">
+                                                <span class="d-block feature-value display-6">
+                                                    <i class="bi bi-suit-heart"></i>
+                                                </span>
+                                                <span class="block feature-name">20</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-2 col-2 feature-item text-center">
+                                            <a href="" class="text-decoration-none text-dark">
+                                                <span class="d-block feature-value display-6">
+                                                    <i class="bi bi-star"></i>
+                                                </span>
+                                                <span class="block feature-name">20</span>
+                                            </a>
+                                        </div>
+                                        <div class="col-md-2 col-2 feature-item text-center">
+                                            <a href="" class="text-decoration-none text-dark">
+                                                <span class="d-block feature-value display-6">
+                                                    <i class="bi bi-share"></i>
+                                                </span>
+                                                <span class="block feature-name">20</span>
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        </div>
-                      </div>
-                    
+                    </div>
+
                 </div>
                 <div class="card-body summary">
                     <div class="row">
@@ -106,35 +112,57 @@
                             <h5>Tóm Tắt</h5>
                         </div>
                         <div class="content">
-                                {!! $content !!}
+                            {!! $content !!}
                         </div>
                     </div>
                 </div>
-              </div>
+            </div>
+            </div>
             <div class="card mb-3">
-                <div class="card-header">
+                <div class="card-header text-bg-dark">
                     Danh sách chương
-                  </div>
+                </div>
                 <div class="card-body chapter">
-                    <div class="row">
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th scope="col">Chương</th>
+                                <th scope="col">Nội dung</th>
+                                <th scope="col">Ngày đăng</th>
+                                <!-- Add more column headers as needed -->
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($chapters as $chapter)
+                                <tr>
+                                    <td>
+                                        <a class="text-decoration-none text-dark"
+                                            href="{{ route('read-stories', ['title' => $title, 'chapterTitle' => $chapter->Title]) }}">
+                                            {{ $chapter->Title }}
+                                        </a>
+                                    </td>
+                                    <td>{{ $chapter->Content }}</td>
+                                    <td>
+                                        {{ $chapter->Created_at->format('d/m/Y') }}
+                                    </td>
+                                </tr>
+                            @endforeach
 
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
         <div class="col-4">
             <div class="card">
                 <div class="card-header">
-                  Quote
+
                 </div>
                 <div class="card-body">
-                  <blockquote class="blockquote mb-0">
-                    <p>A well-known quote, contained in a blockquote element.</p>
-                    <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                  </blockquote>
+
                 </div>
-              </div>
+            </div>
         </div>
     </div>
-    
+
 </div>

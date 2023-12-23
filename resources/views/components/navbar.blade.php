@@ -27,12 +27,13 @@
                         <a class="nav-link" href="#"><i class="bi bi-clock-fill"></i> Lịch sử</a>
                     </li>
                 </ul>
-                <form class="d-flex my-2 my-lg-0" role="search">
+                <form class="d-flex my-2 my-lg-0" role="search" action="{{ route('search-by-title') }}" method="get">
                     <div class="input-group">
-                        <input class="form-control" type="search" placeholder="Tìm kiếm" aria-label="search">
+                        <input class="form-control" type="search" placeholder="Tìm kiếm" aria-label="search" name="keyword">
                         <button class="btn btn-light" type="submit"><i class="bi bi-search"></i></button>
                     </div>
                 </form>
+                
 
 
                 <ul class="navbar-nav ms-auto">
@@ -63,7 +64,11 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                                 data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="bi bi-person-vcard-fill"></i> {{ Auth::user()->username }}
+                                <img src="
+                                @if (Auth::user()->avatar) {{ asset('storage/avatar/' . Auth::user()->avatar) }}
+                                @else {{ asset('storage/avatar/default.jpeg') }} @endif
+                                " style="width: 30px; height: 30px; object-fit: cover; border-radius: 50%;" alt="">
+                                </i> {{ Auth::user()->username }}
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <li><a class="dropdown-item" href="{{ route('profile.show', ['username' => Auth::user()->username]) }}"><i class="bi bi-person-lines-fill"></i> Trang cá nhân</a></li>

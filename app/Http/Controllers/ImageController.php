@@ -4,26 +4,16 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Image;
+use Illuminate\Support\Facades\Storage;
 
 class ImageController extends Controller
 {
-    public function showForm()
+    public function saveImage(Request $request)
     {
-        return view('upload-form');
+        // Xử lý lưu đường dẫn hình ảnh
+        // $request->input('image_link') chứa đường dẫn hình ảnh từ form
+
+        return redirect()->back(); // hoặc chuyển hướng đến trang khác
     }
 
-    public function upload(Request $request)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-        ]);
-
-        $imageData = file_get_contents($request->file('image')->getRealPath());
-
-        $image = new Image;
-        $image->image_data = $imageData;
-        $image->save();
-
-        return redirect()->back()->with('success', 'Image uploaded successfully.');
-    }
 }

@@ -9,6 +9,7 @@ namespace App\Models;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use Illuminate\Database\Eloquent\Builder;
 
 /**
  * Class Story
@@ -76,4 +77,13 @@ class Story extends Model
 	{
 		return $this->hasMany(Chapter::class, 'StoryID');
 	}
+	public function images()
+    {
+        return $this->hasMany(StoriesImage::class, 'StoryID', 'StoryID');
+    }
+
+	public function scopeSearchByTitle(Builder $query, string $keyword)
+    {
+        return $query->where('Title', 'LIKE', '%' . $keyword . '%');
+    }
 }

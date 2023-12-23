@@ -45,4 +45,9 @@ class Chapter extends Model
 		'Created_at',
 		'Updated_at'
 	];
+
+	public function images()
+    {
+        return $this->hasMany(Storiesimage::class, 'ChapterID', 'ChapterID');
+    }
 }

@@ -26,11 +26,23 @@ class Storiesimage extends Model
 
 	protected $casts = [
 		'ImageID' => 'int',
-		'StoryID' => 'int'
+		'StoryID' => 'int',
+		'ChapterID' => 'int',
 	];
 
 	protected $fillable = [
 		'StoryID',
-		'ImageURL'
+		'ImageURL',
+		'ChapterID'
 	];
+
+	public function story()
+    {
+        return $this->belongsTo(Story::class, 'StoryID', 'StoryID');
+    }
+
+	public function chapter()
+    {
+        return $this->belongsTo(Chapter::class, 'ChapterID', 'ChapterID');
+    }
 }

@@ -17,38 +17,10 @@ class ProfileController extends Controller
      */
     public function show($username): View
     {
-        $user = User::where('username', $username)->first();
-
-        if (!$user) {
-            // Handle the case where no user with the given username exists
-            abort(404);
-        }
-
+        $user = User::where('username', $username)->firstOrFail();
         return view('profile.show', compact('user'));
+        
     }
 
-public function uploadAvatar(Request $request)
-{
-    $request->validate([
-        'avatar' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
-    ]);
-
-    $user = $request->user();
-
-    // Xóa ảnh cũ trước khi tải lên ảnh mới
-    if ($user->avatar) {
-        Storage::delete($user->avatar);
-    }
-
-    // Lưu ảnh mới vào public/storage/avatars
-    $avatarPath = $request->file('avatar')->store('avatars', 'public');
-
-    // Cập nhật đường dẫn avatar trong cơ sở dữ liệu
-    $user->update([
-        'avatar' => $avatarPath,
-    ]);
-
-    return redirect()->route('profile.show', ['username' => $user->username])->with('status', 'avatar-uploaded');
-}
 
 }

@@ -10,6 +10,16 @@ use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ChapterController;
 use App\Http\Controllers\ImageController;
+use App\Models\Chapter;
+use App\Models\Story;
+use App\Models\Storiesimage;
+use App\Models\User;
+use App\Models\Storiescategory;
+use App\Models\Storiesauthor;
+use App\Models\Category;
+use App\Models\Author;
+use App\Models\Stories;
+
 
 Route::get('/', function () {
     return view('index');
@@ -42,10 +52,16 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::delete('/admin/danh-sach-truyen/xoa-truyen/{id}', [StoriesController::class, 'destroy'])->name('xoa-truyen');
     Route::match(['get', 'put', 'post'], '/admin/danh-sach-truyen/sua-truyen/{title}', [StoriesController::class, 'edit'])->name('sua-truyen');
     Route::put('/admin/danh-sach-truyen/sua-truyen/{title}', [StoriesController::class, 'update'])->name('admin.cap-nhat-truyen');
+    Route::post('/upload-image/{title}', [StoriesController::class, 'uploadImage'])->name('upload-image');
+    
+    //ChapterRoute
+    
+
     //UserRoute
     Route::get('/admin/thanh-vien', [UserController::class,'index'])->name('thanh-vien');
     Route::put('/admin/thanh-vien/{id}/thay-doi-quyen-han', [UserController::class, 'roles'])->name('thay-doi-quyen-han');
 
+    Route::post('/admin/them-chuong/{title}', [ChapterController::class, 'addChapter'])->name('admin.them-chuong');
 
     Route::get('/admin/bao-loi-truyen', [AdminController::class,'baoLoiTruyen'])->name('bao-loi-truyen');
     Route::get('/admin/nhom-dich', [AdminController::class,'nhomDich'])->name('nhom-dich');
@@ -64,8 +80,9 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
 require __DIR__.'/auth.php';
 
 Route::get('/truyen-tranh/{title}', [StoriesController::class, 'show'])->name('truyen-tranh');
+Route::get('/truyen-tranh/{title}/{chapterTitle}', [ChapterController::class, 'show'])->name('read-stories');
 
-// routes/web.php;
+Route::get('/tim-kiem', [StoriesController::class, 'searchByTitle'])->name('search-by-title');
 
 Route::middleware(['auth'])->group(function () {
     // ... các routes khác

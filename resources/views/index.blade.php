@@ -12,6 +12,7 @@
 
 <body>
     <x-navbar />
+
     <div class="body">
         <div class="container bodycarousel">
             <!-- Carousel -->
@@ -48,6 +49,7 @@
             </div>
         </main>
     </div>
+
     </div>
     </div>
 </body>

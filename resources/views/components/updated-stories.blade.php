@@ -1,4 +1,3 @@
-
 <div class="card">
     <div class="card-header">
         <i class="bi bi-stars"></i> Truyện mới cập nhật
@@ -7,17 +6,20 @@
     <div class="card-body text-center">
         <div class="row row-cols-2 row-cols-md-4 g-4">
             @foreach ($truyen as $story)
+            @if(isset($story->Title))
                 <a href="{{ route('truyen-tranh', ['title' => $story->Title]) }}" class="text-decoration-none">
                     <div class="col">
                         <div class="card border-0">
                             <img src="{{ asset($story->StoriesCover) }}" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h6 class="card-title">{{ $story->Title }}</h6>
+                                <h6 class="card-title fw-bold">{{ $story->Title }}</h6>
                             </div>
                         </div>
                     </div>
                 </a>
-            @endforeach
+            @endif
+        @endforeach
+        
         </div>
     </div>
 
