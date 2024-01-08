@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use Yajra\DataTables\Contracts\DataTable;
+use App\Models\Story;
+use App\Models\Storiescategory;
 
 class CategoryController extends Controller
 {
@@ -47,10 +49,25 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        //
+    public function show(string $categoryName)
+{
+    // Tìm Category dựa trên CategoryName
+    $category = Category::where('CategoryName', $categoryName)->first();
+
+    if (!$category) {
+        // Xử lý trường hợp không tìm thấy Category
+        abort(404);
     }
+
+    // Tìm các StoryID dựa trên CategoryID trong bảng storiescategory
+    $storyIds = Storiescategory::where('CategoryID', $category->CategoryID)->pluck('StoryID');
+
+    // Tìm truyện dựa trên các StoryID
+    $truyen = Story::whereIn('StoryID', $storyIds)->get();
+
+    return view('stories.category-stories', compact('category', 'truyen'));
+}
+
 
     /**
      * Show the form for editing the specified resource.

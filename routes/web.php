@@ -39,7 +39,7 @@ Route::middleware('auth')->group(function () {
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('/admin', [AdminController::class, 'index'])->name('admin.admin');
     //CategoryRoute
-    Route::get('/admin/the-loai',[CategoryController::class,'index'])->name('the-loai');
+    Route::get('/admin/the-loai',[CategoryController::class,'index'])->name('xem-the-loai');
     Route::post('/admin/the-loai/tao-the-loai',[CategoryController::class,'create'])->name('tao-the-loai');
     Route::delete('/admin/the-loai/xoa-the-loai/{id}', [CategoryController::class, 'destroy'])->name('xoa-the-loai');
     //AuthorRoute
@@ -81,6 +81,8 @@ require __DIR__.'/auth.php';
 
 Route::get('/truyen-tranh/{title}', [StoriesController::class, 'show'])->name('truyen-tranh');
 Route::get('/truyen-tranh/{title}/{chapterTitle}', [ChapterController::class, 'show'])->name('read-stories');
+
+Route::get('/the-loai/{categoryName}', [CategoryController::class, 'show'])->name('the-loai');
 
 Route::get('/tim-kiem', [StoriesController::class, 'searchByTitle'])->name('search-by-title');
 

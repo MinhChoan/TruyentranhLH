@@ -250,7 +250,7 @@
                             </div>
 
                             <div class="card-body text-center">
-                                <img src="{{ $truyen->StoriesCover }}" alt="{{ $truyen->Title }}" class="img-fluid">
+                                <img src="{{ $truyen->StoriesCover }}" alt="{{ $truyen->Title }}" class="img-fluid" style="width: 70%;">
                             </div>
                         </div>
                     </div>

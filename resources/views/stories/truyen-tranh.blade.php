@@ -2,17 +2,29 @@
 <p></p>
 <div class="container">
     <div class="row">
-        <div class="col-8">
+        <div class="col-12 col-md-8">
             <div class="card mb-3">
                 <div class="card-header">
                 <div class="card-body stories">
                     <div class="row">
                         
-                        <div class="col-12 col-md-4">
-                            <div class="stories-cover">
+                        <div class="col-12 col-md-4 mb-2">
+                            <div class="stories-cover mb-2">
                                 <img src="{{ $cover }}"class="card-img-top" alt="...">
                             </div>
-
+                            <div class="stories-read d-grid gap-2 col-12 mx-auto">
+                                {{-- @foreach($chapters as $chapter)
+                                    @if(isset($firstChapter) && $chapter->ChapterNumber != $firstChapter->ChapterNumber)
+                                        <a href="{{ route('read-stories', ['title' => $title, 'chapterTitle' => $firstChapter->Title]) }}" class="btn btn-dark">Chương đầu</a>
+                                    @endif
+                            
+                                    @if(isset($lastChapter) && $chapter->ChapterNumber != $lastChapter->ChapterNumber)
+                                        <a href="{{ route('read-stories', ['title' => $title, 'chapterTitle' => $lastChapter->Title]) }}" class="btn btn-dark">Chương cuối</a>
+                                    @endif
+                                @endforeach --}}
+                            </div>
+                                              
+                            
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="stories-title">
@@ -55,10 +67,10 @@
                                     </span>
                                 </div>
                             </div>
-
-                            <div class="col-12 bottom-features">
-                                <div class="side-features">
-                                    <div class="row justify-content-center">
+                            <hr>
+                            <div class="col-12 bottom-features ">
+                                <div class="side-features ">
+                                    <div class="row justify-content-center ">
                                         <div class="col-md-2 col-2 feature-item text-center">
                                             <a href="" class="text-decoration-none text-dark">
                                                 <span class="d-block feature-value display-6">
@@ -102,10 +114,12 @@
                                     </div>
                                 </div>
                             </div>
+                            <hr>
                         </div>
                     </div>
 
                 </div>
+                <hr>
                 <div class="card-body summary">
                     <div class="row">
                         <div class="value">
@@ -116,6 +130,7 @@
                         </div>
                     </div>
                 </div>
+                <hr>
             </div>
             </div>
             <div class="card mb-3">
@@ -153,7 +168,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-4">
+        {{-- <div class="col-4">
             <div class="card">
                 <div class="card-header">
 
@@ -162,7 +177,7 @@
 
                 </div>
             </div>
-        </div>
+        </div> --}}
     </div>
 
 </div>

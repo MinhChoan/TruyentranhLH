@@ -141,6 +141,9 @@ class ChapterController extends Controller
     // Lấy tổng số chapters để kiểm tra nút chuyển trang
     $totalChapters = Chapter::where('StoryID', $story->StoryID)->count();
 
+    $firstChapter = Chapter::where('StoryID', $story->StoryID)->orderBy('ChapterNumber')->first();
+    $lastChapter = Chapter::where('StoryID', $story->StoryID)->orderBy('ChapterNumber', 'desc')->first();  
+
     // Truyền thông tin chapter, ảnh, tổng số chapters, và các thông tin khác vào view
     $chapterInfo = [
         'chapter' => $chapter,
@@ -149,9 +152,11 @@ class ChapterController extends Controller
         'chapterTitle' => $chapterTitle,
         'story' => $story,
         'totalChapters' => $totalChapters,
+        'firstChapter' => $firstChapter,
+        'lastChapter' => $lastChapter,
     ];
 
-    return view('stories.read-stories', compact('chapterInfo'));
+    return view('stories.read-stories', compact('chapterInfo', 'story', 'firstChapter', 'lastChapter'));
 }
 
 private function saveImages($story, $chapter, $imageURLs)

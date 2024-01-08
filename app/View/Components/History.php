@@ -5,15 +5,17 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Story;
 
 class History extends Component
 {
+    public $history;
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        //
+        $this->history = Story::all();
     }
 
     /**
@@ -22,5 +24,5 @@ class History extends Component
     public function render(): View|Closure|string
     {
         return view('components.history');
-    }
+    } 
 }

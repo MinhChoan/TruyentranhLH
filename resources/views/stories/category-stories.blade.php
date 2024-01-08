@@ -1,8 +1,9 @@
-<div class="card">
-    <div class="card-header">
-        <i class="bi bi-stars"></i> Truyện mới cập nhật
-    </div>
+<x-navbar/>
 
+<div class="card container">
+    <div class="card-header">
+      Danh sách truyện thể loại
+    </div>
     <div class="card-body text-center">
         <div class="row row-cols-2 row-cols-md-4 g-4">
             @foreach ($truyen as $story)
@@ -19,7 +20,6 @@
                     </a>
                 @endif
             @endforeach
-        </div>
-        
+        </div>        
     </div>
-</div>
+  </div>

@@ -282,7 +282,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="{{ route('the-loai') }}" class="nav-link">
+                                    <a href="{{ route('xem-the-loai') }}" class="nav-link">
                                         <i class="bi bi-tags-fill"></i>
                                         <p>Thể loại</p>
                                     </a>
